@@ -1,59 +1,62 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
+using Seed.Managers;
+using Seed.Screen;
 using Seed.Util;
 
 namespace Seed
 {
-
     public class Main : Game
     {
 
-        private readonly GraphicsDeviceManager _graphics;
-        private SpriteBatch _spriteBatch;
-        private ContentChest _contentChest;
-        
+        public readonly GraphicsDeviceManager Graphics;
+        public readonly ScreenManager ScreenManager;
+        public ContentChest ContentChest;
+        public SpriteBatch SpriteBatch;
+
         public Main()
         {
-            _graphics = new GraphicsDeviceManager(this)
+            Graphics = new GraphicsDeviceManager(this)
             {
                 PreferredBackBufferWidth = 1280,
                 PreferredBackBufferHeight = 720
             };
 
             Content.RootDirectory = "Content";
+
+            ScreenManager = new ScreenManager();
         }
-        
+
         protected override void Initialize()
         {
             IsMouseVisible = true;
-            _contentChest = new ContentChest(Content);
+            ContentChest = new ContentChest(Content);
+
+            ScreenManager.AddScreen(new MainMenuScreen());
             base.Initialize();
         }
-        
+
         protected override void LoadContent()
         {
-            _spriteBatch = new SpriteBatch(GraphicsDevice);
-            _contentChest.Load();
+            SpriteBatch = new SpriteBatch(GraphicsDevice);
+            ContentChest.Load();
         }
-        
+
         protected override void UnloadContent()
         {
         }
-        
+
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
-
-
+            var deltaTime = gameTime.ElapsedGameTime.Milliseconds / 1000f;
+            ScreenManager.Update(deltaTime);
             base.Update(gameTime);
         }
-        
+
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.White);
-            
+            ScreenManager.Draw(SpriteBatch);
             base.Draw(gameTime);
         }
     }

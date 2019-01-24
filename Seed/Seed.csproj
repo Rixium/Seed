@@ -42,11 +42,13 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Camera.cs" />
-    <Compile Include="ContentChest.cs" />
-    <Compile Include="Content\UIText.cs" />
-    <Compile Include="Map.cs" />
-    <Compile Include="Game1.cs" />
+    <Compile Include="Managers\ScreenManager.cs" />
+    <Compile Include="Screen\GameScreen.cs" />
+    <Compile Include="Screen\IScreen.cs" />
+    <Compile Include="Screen\MainMenuScreen.cs" />
+    <Compile Include="Util\Camera.cs" />
+    <Compile Include="Util\ContentChest.cs" />
+    <Compile Include="Main.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -108,11 +110,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="app.manifest" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\map.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />

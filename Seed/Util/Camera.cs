@@ -4,14 +4,11 @@ namespace Seed.Util
 {
     public class Camera
     {
+        public int MaxZoom = 3;
+        public float Scale = 2;
 
         public int X;
         public int Y;
-        public float Scale = 2;
-        public int MaxZoom = 3;
-
-
-        public Vector2 ViewportCenter => new Vector2(1280 * 0.5f, 720 * 0.5f);
 
 
         public Camera(int startX, int startY)
@@ -19,6 +16,9 @@ namespace Seed.Util
             X = startX;
             Y = startY;
         }
+
+
+        public Vector2 ViewportCenter => new Vector2(1280 * 0.5f, 720 * 0.5f);
 
         public void Move(int x, int y)
         {
