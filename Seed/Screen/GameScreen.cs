@@ -1,18 +1,15 @@
-﻿using System;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 
 namespace Seed.Screen
 {
-    public class GameScreen : IScreen
+    public class GameScreen : Screen
     {
-        public void Update(float deltaTime)
+        public override void Update(float deltaTime)
         {
-            throw new NotImplementedException();
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch)
         {
-            throw new NotImplementedException();
         }
     }
 }

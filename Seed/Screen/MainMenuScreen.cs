@@ -2,17 +2,14 @@
 
 namespace Seed.Screen
 {
-    public class MainMenuScreen : IScreen
+    public class MainMenuScreen : Screen
     {
-        public void Update(float deltaTime)
+        public override void Update(float deltaTime)
         {
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Begin();
-
-            spriteBatch.End();
         }
     }
 }
