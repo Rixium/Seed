@@ -42,10 +42,13 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Enums\ScreenState.cs" />
+    <Compile Include="Managers\InputManager.cs" />
     <Compile Include="Managers\ScreenManager.cs" />
     <Compile Include="Screen\GameScreen.cs" />
     <Compile Include="Screen\IScreen.cs" />
     <Compile Include="Screen\MainMenuScreen.cs" />
+    <Compile Include="Screen\Screen.cs" />
     <Compile Include="Util\Camera.cs" />
     <Compile Include="Util\ContentChest.cs" />
     <Compile Include="Main.cs" />

@@ -28,6 +28,7 @@ namespace Seed.Managers
         public Action<Vector2> OnMouseMoved;
         public Action RightClick;
 
+
         public void RegisterOnKeyDown(Keys key, Action<Keys> controlAction)
         {
             if (ActionMapBindings.ContainsKey(key) == false)
